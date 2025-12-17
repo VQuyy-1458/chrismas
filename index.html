@@ -331,7 +331,7 @@
             scene.add(loveMesh);
         }
 
-        function updateParticleGroup(group, type, targetState, speed, handRotY, time) {
+        function updateParticleGroup(group, type, targetState, speed, , time) {
             const positions = group.geometry.attributes.position.array;
             const sizes = group.geometry.attributes.size.array;
             const colors = group.geometry.attributes.color.array;
@@ -388,7 +388,7 @@
             } else {
                 // EXPLODE
                 group.scale.set(1,1,1);
-                group.rotation.y += (handRotY - group.rotation.y) * 0.1;
+                group.rotation.y += ( - group.rotation.y) * 0.1;
 
                 // size, color
                 for(let i=0; i<count; i++) {
@@ -410,11 +410,11 @@
             requestAnimationFrame(animate);
             const time = Date.now() * 0.001;
             const speed = 0.08;
-            const handRotY = (handX - 0.5) * 4.0;
+            const  = (handX - 0.5) * 15.0;
 
-            updateParticleGroup(groupGold, 'gold', state, speed, handRotY, time);
-            updateParticleGroup(groupRed, 'red', state, speed, handRotY, time);
-            updateParticleGroup(groupGift, 'gift', state, speed, handRotY, time);
+            updateParticleGroup(groupGold, 'gold', state, speed, , time);
+            updateParticleGroup(groupRed, 'red', state, speed, , time);
+            updateParticleGroup(groupGift, 'gift', state, speed, , time);
 
             photoMeshes.forEach((mesh, i) => {
                 if(!mesh.material.map && photoTextures[i]) {
@@ -530,3 +530,4 @@
     </script>
 </body>
 </html>
+
